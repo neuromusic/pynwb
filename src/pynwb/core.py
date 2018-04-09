@@ -80,9 +80,6 @@ class NWBBaseType(with_metaclass(ExtenderMeta)):
     @staticmethod
     def __setter(nwbfield):
         def _func(self, val):
-            if nwbfield in self.fields:
-                msg = "can't set attribute '%s' -- already set" % nwbfield
-                raise AttributeError(msg)
             self.fields[nwbfield] = val
         return _func
 
